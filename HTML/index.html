@@ -3,31 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="CSS/style.css">    
+    <title>CyberCalc - Neon Edition</title>
+    <!-- Google Fonts for Cyberpunk typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css">    
 </head>
 <body>
-    <div class="container">
-            <div class="calculadora">
-            <input type="text" class="display">
-        <button class="botao">7</button>
-        <button class="botao">8</button>
-        <button class="botao">9</button>
-        <button class="botao">/</button>
-        <button class="botao">4</button>
-        <button class="botao">5</button>
-        <button class="botao">6</button>
-        <button class="botao">*</button>
-        <button class="botao">1</button>
-        <button class="botao">2</button>
-        <button class="botao">3</button>
-        <button class="botao">-</button>
-        <button class="botao">0</button>
-        <button class="botao">.</button>
-        <button class="botao">=</button>
-        <button class="botao">+</button>
+    <!-- Cyberpunk grid background and glowing ambient orbs -->
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="grid-overlay"></div>
     </div>
-</div>
-    <script src="JS/script.js"></script>
+    
+    <div class="container">
+        <div class="calculadora-wrapper">
+            <!-- Retro-futuristic Console Header -->
+            <div class="console-header">
+                <div class="brand">
+                    <span class="brand-text">CYBERDYNE SYS.</span>
+                    <span class="model-text">v8.4-NEON</span>
+                </div>
+                <div class="led-container">
+                    <span class="led-label">STATUS</span>
+                    <div class="led led-green" title="SYSTEM ACTIVE"></div>
+                    <div class="led led-blue blink" title="SYNC LINK ACTIVE"></div>
+                </div>
+            </div>
+            
+            <div class="calculadora">
+                <!-- Display with CRT style scanlines and glowing text -->
+                <div class="display-container">
+                    <div class="crt-scanline"></div>
+                    <div class="crt-glow"></div>
+                    <div class="historico-display" id="historico"></div>
+                    <input type="text" class="display" id="display" readonly placeholder="0">
+                </div>
+                
+                <!-- 4-column keyboard grid -->
+                <div class="teclado">
+                    <!-- Row 1: Clear and basic controls -->
+                    <button class="botao funcao" data-val="C">C</button>
+                    <button class="botao funcao" data-val="DEL">DEL</button>
+                    <button class="botao funcao" data-val="+/-">+/-</button>
+                    <button class="botao operador" data-val="/">/</button>
+                    
+                    <!-- Row 2 -->
+                    <button class="botao numero" data-val="7">7</button>
+                    <button class="botao numero" data-val="8">8</button>
+                    <button class="botao numero" data-val="9">9</button>
+                    <button class="botao operador" data-val="*">×</button>
+                    
+                    <!-- Row 3 -->
+                    <button class="botao numero" data-val="4">4</button>
+                    <button class="botao numero" data-val="5">5</button>
+                    <button class="botao numero" data-val="6">6</button>
+                    <button class="botao operador" data-val="-">-</button>
+                    
+                    <!-- Row 4 -->
+                    <button class="botao numero" data-val="1">1</button>
+                    <button class="botao numero" data-val="2">2</button>
+                    <button class="botao numero" data-val="3">3</button>
+                    <button class="botao operador" data-val="+">+</button>
+                    
+                    <!-- Row 5: 0 and decimal take 1 column each, equals (=) spans 2 columns -->
+                    <button class="botao numero" data-val="0">0</button>
+                    <button class="botao numero" data-val=".">.</button>
+                    <button class="botao igual" data-val="=">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../JS/script.js"></script>
 </body>
 </html>
